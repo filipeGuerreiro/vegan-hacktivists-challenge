@@ -2,7 +2,7 @@
 
     @section('content')
     <h1 class="text-center my-5">
-        <a href="http://localhost:80" class="text-dark">
+        <a href="{{ url('/') }}" class="text-dark">
             Q &amp; A
         </a>
     </h1>
@@ -21,7 +21,7 @@
                 </p>
                 @endforeach
 
-                <form class="mt-3" action="http://localhost:80/questions/{{ $question_id }}/answers" method="POST">
+                <form class="mt-3" action="{{ url('/questions/') . '/' . $question_id . '/answers' }}" method="POST">
                     @csrf
                     @if($errors->any())
                     <div class="notification is-danger">
