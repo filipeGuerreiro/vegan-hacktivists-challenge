@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Requests\CreateQuestion;
 use App\Models\Answer;
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,28 +24,30 @@ Route::get('/', function () {
     ]);
 });
 
-Route::post('questions', function (Request $request) {
+Route::post('questions', function (CreateQuestion $request) {
     // TODO probably put this code into service...?
     Question::create([
-        'title' => $request->content,
-        'answers' => 0
+        'title' =>  $request->question
     ]);
 
     return redirect('/');
 });
 
 Route::get('questions/{id}', function ($id) {
+    $question = Question::findOrFail($id);
     return view('question', [
         'question_id' => $id,
-        'answers' => Question::findOrFail($id)->answers()
+        'question_title' => $question->title,
+        'answers' => $question->answers()->get()
     ]);
 })->whereNumber('id');
 
 Route::post('questions/{id}', function ($id, Request $request) {
     Answer::create([
         'question_id' => $id,
-        'content' => $request->content
+        'content' => $request->answer
     ]);
+    DB::table('questions')->increment('answers');
 
-    return redirect('questions/{$id}');
+    return redirect("questions/{$id}");
 });
