@@ -24,7 +24,7 @@
             <div class="col-lg-6 offset-lg-3">
 
                 <h2 class="bg-primary text-white p-3 mb-3">
-		    {{ $question_title }}	
+		    {{ $question_title }}
 		</h2>
 
                 @foreach ($answers as $a)
@@ -35,12 +35,21 @@
 
                 <form class="mt-3" action="http://localhost:80/questions/{{ $question_id }}" method="POST">
                     @csrf
+                    @if($errors->any())
+                    <div class="notification is-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
                     <div class="form-group">
                         <h4 class="bg-primary text-white p-3">
                             Answer the question!
                         </h4>
-                        <textarea name="answer" class="form-control "></textarea>
+                        <textarea name="answer" class="form-control ">{{ old('answer') }}</textarea>
                     </div>
 
                     <div class="text-right">

@@ -25,12 +25,21 @@
 
                 <form class="pb-3 border-bottom mb-3" action="http://localhost:80/questions" method="POST">
                     @csrf
+                    @if($errors->any())
+                    <div class="notification is-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
                     <div class="form-group">
-                        <textarea name="question" class="form-control " placeholder="Which country consumes the most animals per capita?"></textarea>
+                        <textarea name="question" class="form-control" placeholder="Which country consumes the most animals per capita?">{{ old('question') }}</textarea>
                     </div>
 
-                    <div class="text-right">
+                    <div class=" text-right">
                         <button class="btn btn-primary" type="submit">
                             Ask away
                         </button>
