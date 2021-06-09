@@ -1,18 +1,6 @@
-<!doctype html>
-<html lang="en">
+@extends('layout')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Q/A</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="https://challenge.veganhacktivists.org/css/app.css" rel="stylesheet" type="text/css">
-</head>
-
-<body>
+    @section('content')
     <h1 class="text-center my-5">
         <a href="http://localhost:80" class="text-dark">
             Q &amp; A
@@ -68,6 +56,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+    @endsection

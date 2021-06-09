@@ -17,6 +17,6 @@ class AnswersController extends Controller
         ]);
         DB::table('questions')->increment('answers');
 
-        return redirect("questions/{$id}/answers");
+        return redirect("questions/{$id}");
     }
 }
