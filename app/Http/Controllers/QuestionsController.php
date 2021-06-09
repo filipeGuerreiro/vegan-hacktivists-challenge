@@ -22,7 +22,7 @@ class QuestionsController extends Controller
     {
         $path = resource_path() . '/questions.txt';
         $contents = file($path);
-        $line = Arr::random($contents, 1);
+        $line = Arr::random($contents, 1)[0];
         return str_replace('"', "", $line);
     }
 
