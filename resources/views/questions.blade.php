@@ -36,7 +36,7 @@
                     @endif
 
                     <div class="form-group">
-                        <textarea name="question" class="form-control" placeholder="Which country consumes the most animals per capita?">{{ old('question') }}</textarea>
+                        <textarea name="question" class="form-control" placeholder="{!! $placeholder !!}">{{ old('question') }}</textarea>
                     </div>
 
                     <div class=" text-right">
