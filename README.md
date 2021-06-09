@@ -1,25 +1,31 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://veganhacktivists.org/" target="_blank"><img src="https://i.imgur.com/xSHDo4E.pngE" width="400"></a></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
 ## Vegan Hacktivists Challenge
 
-This project implements [this challenge](https://gist.github.com/GRardB/7e2990bbea8c2e50e2b501b712d8c169).
+This project is an implementation of [this challenge](https://gist.github.com/GRardB/7e2990bbea8c2e50e2b501b712d8c169).
+Random trivia questions courtesy of [opentdb](https://opentdb.com/).
+
+### Requirements
+
+- [composer](https://getcomposer.org/download/)
+
+(not strictly required but the project was developed/tested with docker)
+- [docker](https://docs.docker.com/get-docker/)
+- [docker-compose](https://docs.docker.com/compose/install/)
 
 ### Build
 
-cp .env.example .env
-mysql
-...
-mysql> create database app
-
-php artisan migrate
+```
+composer install
+./vendor/bin/sail up -d
+./vendor/bin/sail artisan migrate:fresh
+```
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
