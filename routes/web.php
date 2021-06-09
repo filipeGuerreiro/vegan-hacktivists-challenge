@@ -25,5 +25,5 @@ Route::post('questions', 'App\Http\Controllers\QuestionsController@submit');
 Route::get('questions/{id}', 'App\Http\Controllers\QuestionsController@fetch')
     ->whereNumber('id');
 
-Route::post('questions/{id}', 'App\Http\Controllers\AnswersController@submit')
+Route::post('questions/{id}/answers', 'App\Http\Controllers\AnswersController@submit')
     ->whereNumber('id');
