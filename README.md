@@ -26,6 +26,10 @@ composer install
 ./vendor/bin/sail artisan migrate:fresh
 ```
 
+### Run
+
+See it in action by going over [to your web browser](http://localhost:80).
+
 ## License
 
 The project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
